@@ -1,0 +1,43 @@
+% Program 1: Find Max and Min
+
+find_max(X, Y, X) :- X >= Y, !.
+find_max(X, Y, Y) :- X < Y.
+
+find_min(X, Y, X) :- X =< Y, !.
+find_min(X, Y, Y) :- X > Y.
+
+
+Queries:
+?- find_max(100,200,Max).
+
+?- find_min(40,10,Min).
+
+
+
+
+% Program 2: Resistance of Circuits
+
+series(R1, R2, Re) :-
+    Re is R1 + R2.
+
+parallel(R1, R2, Re) :-
+    Re is (R1 * R2) / (R1 + R2).
+
+Queries:
+?- parallel(10,40,R3), series(R3,12,R4), parallel(R4,30,R5).
+
+
+
+
+% Program 3: Line Segment Classification
+
+vertical(seg(point(X,_), point(X,_))).
+
+horizontal(seg(point(_,Y), point(_,Y))).
+
+oblique(seg(point(X1,Y1), point(X2,Y2))) :-
+    X1 \== X2,
+    Y1 \== Y2.
+
+Queries:
+?- horizontal(seg(point(10,20),point(15,20))).
